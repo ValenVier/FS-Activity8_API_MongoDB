@@ -6,7 +6,7 @@ require('dotenv').config();
 
 
 //config BD
-
+require('./src/config/db');
 
 //Server
 const server = http.createServer(app); //creo el servidor y las peticiones entrantes las gestiona app
