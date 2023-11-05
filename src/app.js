@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 //Rutas
-
+app.use('/api', require('./routes/api')); //todas las peticiones que lleguen independientemente del método las envío a esta ruta
 
 //Exporto la app
 module.exports = app;
