@@ -14,7 +14,7 @@ const inmuebleSchema = new Schema({
     toObject: {
         virtuals: true,
         transform: function (doc, ret) {
-            // para transoformar el objeto que se devuelve
+            // para transformar el objeto que se devuelve
             ret.id = ret._id;
             delete ret._id;
             ret.Piso = ret.floor;
@@ -32,7 +32,7 @@ const inmuebleSchema = new Schema({
     toJSON: {
         virtuals: true,
         transform: function (doc, ret) {
-            // para ransoformar el json que se devuelve
+            // para transformar el json que se devuelve
             ret.id = ret._id;
             delete ret._id;
             ret.Piso = ret.floor;
@@ -61,5 +61,13 @@ inmuebleSchema.virtual('Alquilado').get(function () {
 inmuebleSchema.virtual('Nombre Propietraio').get(function () {
     return `${this.landlord}`;
 });
+
+inmuebleSchema.statics.getInmuebleByValues = function (floor, letter) {
+    return model('inmueble').find({
+        floor: floor,
+        letter: letter
+    });
+};
+
 
 module.exports = model('inmueble', inmuebleSchema); //Relación entre la colección y el schema
