@@ -3,3 +3,6 @@ node_modules
 
 # Ignora todos los archivos de texto
 *.txt
+
+#Ignora todos los archivos de logs
+*.log
